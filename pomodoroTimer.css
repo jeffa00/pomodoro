@@ -1,0 +1,10 @@
+#settingsColumn
+{
+    float: left;
+    width: 500px;
+}
+
+#timerColumn
+{
+    float: right;
+}

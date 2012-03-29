@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Pomodoro Counter</title>
+        <link rel="stylesheet" href="pomodoroTimer.css"/>
+    </head>
+    <body>
+    <div id="settingsColumn">
+        <input type="textbox" id="pomodoroLengthText" text="25"/>
+    </div>
+    <div id="timerColumn"> 
+        <h1>Pomodoro Timer</h1>
+        <div>
+        <svg id="timerSvg" height="610" width="200" xmlns="http://www.w3.org/2000/svg">
+            <rect id="timerBackgroundRect" x="0" y="0" width="110" height="610" fill="darkgreen"/>
+            <rect id="timerRect" x="5" y="5" width="100" height="600" fill="firebrick"/>
+        </svg>
+        </div>
+        <button id="startButton">Start, ye beautiful bastard!</input>
+    </div> 
+
+
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    
+    <script src="pomodoroTimer.js"></script>
+</html>
