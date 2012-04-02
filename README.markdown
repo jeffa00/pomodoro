@@ -8,6 +8,7 @@ For the full poop on the Pomodoro Technique check out the [Official Pomodoro Tec
 This project aims to provide an open source HTML/CSS/JavaScript foundation for Pomodoro apps.
 
 My goal is to keep the guts in HTML/CSS/JavaScript and then use build processes to create apps for:
+
 * The Web (duh)
 * Windows 8 Metro App
 * Windows 7 (and Vista) gadget
