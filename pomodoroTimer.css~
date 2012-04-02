@@ -6,5 +6,5 @@
 
 #timerColumn
 {
-    float: left;
+    float: right;
 }
