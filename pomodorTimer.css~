@@ -1,9 +1,0 @@
-#settingsColumn
-{
-    float: left;
-}
-
-#timerColumn
-{
-    float: left;
-}
