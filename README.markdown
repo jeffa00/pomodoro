@@ -16,7 +16,7 @@ My goal is to keep the guts in HTML/CSS/JavaScript and then use build processes 
     * iOS
     * Android
     * BlackBerry (maybe)
-    * Windows Phone
+    * Windows Phone (maybe)
     * WebOS (maybe)
 
 ## Pomodoro Technique
