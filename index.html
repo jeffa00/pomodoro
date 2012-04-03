@@ -17,25 +17,25 @@
                         <label for="pomodoroLengthText">Pomodoro Length:</label>
                     </div>
                     <div class="editor-field"><input type="text" id="pomodoroLengthText" value="25"/></div>
-                    <div id="pomodoroLengthSlider"></div>
+                    <div id="pomodoroLengthSlider" class="slider"></div>
 
                     <div class="editor-label">
                         <label for="shortBreakLengthText">Short Break Length:</label>
                     </div>
                     <div class="editor-field"><input type="text" id="shortBreakLengthText" value="5"/></div>
-                    <div id="shortBreakLengthSlider"></div>
-                    
+                    <div id="shortBreakLengthSlider" class="slider"></div>
+
                     <div class="editor-label">
                         <label for="longBreakLengthText">Long Break Length:</label>
                     </div>
                     <div class="editor-field"><input type="text" id="longBreakLengthText" value="15"/></div>
-                    <div id="longBreakLengthSlider"></div>
+                    <div id="longBreakLengthSlider" class="slider"></div>
 
                     <div class="editor-label">
                         <label for="pomodorosPerSetText">Pomodoros Per Set:</label>
                     </div>
                     <div class="editor-field"><input type="text" id="pomodorosPerSetText" value="4"/></div>
-                    <div id="pomodorosPerSetSlider"></div>
+                    <div id="pomodorosPerSetSlider" class="slider"></div>
 
                     <div class="editor-label">
                         <label for="pomodoroTopicText">What I'm Working On:</label>
@@ -49,15 +49,22 @@
         <div id="timerColumn"> 
             <div id="timerWidget" class="ui-widget ui-corner-all">
                 <div id="timerWidgetHeader" class="ui-widget-header ui-corner-top">
-                    <h1>Pomodoro Timer</h1>
+                    <div>Pomodoro Timer</div>
+                    <div id="statusMessage">&nbsp;</div>
+                    <div id="pomodoroTopic">&nbsp;</div >
                 </div>
                 <div id="timerWidgetContent" class="ui-widget-content ui-corner-bottom">
-                    <svg id="timerSvg" height="610" width="200" xmlns="http://www.w3.org/2000/svg">
-                    <rect id="timerBackgroundRect" x="0" y="0" width="110" height="610" fill="darkgreen"/>
-                    <rect id="timerRect" x="5" y="5" width="100" height="600" fill="firebrick"/>
-                    </svg>
+                    <div id="timerPane">
+                        <svg id="timerSvg" height="610" width="110" xmlns="http://www.w3.org/2000/svg">
+                        <rect id="timerBackgroundRect" x="0" y="0" width="110" height="610" fill="darkgreen"/>
+                        <rect id="timerRect" x="5" y="5" width="100" height="600" fill="firebrick"/>
+                        </svg>
+                    </div>
+                    <div id="statusPane">
+                        <div id="statusTImerText">&nbsp;</div>
+                        <button id="startButton">Start Pomodoro</button>
+                    </div>
                 </div>
-                <button id="startButton">Start Pomodoro</button>
             </div>
         </div> 
 

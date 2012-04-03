@@ -1,15 +1,63 @@
 #settingsColumn
 {
     float: left;
-    width: 500px;
+    width: 300px;
+    margin-right: 20px;
+}
+
+#settingsHeader
+{
+    text-align: center;
 }
 
 #timerColumn
 {
-    float: right;
+    float: left;
+    width: 300px;
 }
 
 #timerWidgetContent
 {
     text-align: center;
+    height: 620px;
+}
+
+#timerSvg
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#statusMessage
+{
+    font-size: .7em;
+}
+
+#pomodoroTopic
+{
+    font-size: .7em;
+}
+
+#timerWidgetHeader
+{
+    text-align: center;
+}
+
+.slider
+{
+    margin-bottom: 10px;
+}
+
+#pomodoroTopicText
+{
+    width: 280px;
+}
+
+#timerPane
+{
+    float:right;
+}
+#statusPane
+{
+    float:left;
 }

@@ -3,15 +3,22 @@ $(document).ready(function() {
     var pomodoroMinutes = 1;
     var timerGraphRect = document.getElementById('timerRect');
     var isRunning = false;
+    $('#startButton').button();
 
 
     $('#startButton').click(function () {
         if (isRunning){
 
-        }else
-        {
+        }else{
             pomodoroMinutes = Number($('#pomodoroLengthText').val()); 
             isRunning = true;
+            $('#statusMessage').text('Pomodoro In Progress');
+            var topicText = $('#pomodoroTopicText').val();
+            if (topicText == ''){
+                topicText = ' ';
+            }
+
+            $('#pomodoroTopic').text(topicText);
 
             var interval = setInterval(function() {
                 height -= 600 / (pomodoroMinutes * 60);
@@ -19,8 +26,11 @@ $(document).ready(function() {
                     interval = clearInterval(interval);
                     var snd = new Audio('sounds/66951__benboncan__boxing-bell.wav');
                     snd.play();
+                    $('#statusMessage').text('Break In Progress');
+
                 }else{
                     timerGraphRect.setAttribute('height', height);   
+                    $('#statusTimerText').html('00:00');
                 }
             }, 1000);
         }
