@@ -1,11 +1,26 @@
 $(document).ready(function() {
+    var timerCanvas = document.getElementById('timerCanvas');
+    var ctx = timerCanvas.getContext('2d');
+
     var height = 600;
     var pomodoroMinutes = 1;
     var timerGraphRect = document.getElementById('timerRect');
     var isRunning = false;
     $('#startButton').button();
 
+    var drawBaseRect = function(){
+       ctx.fillStyle="darkgreen";
+       ctx.fillRect(0, 0, 110, 610);
+    } 
 
+    var drawTimerRect = function(height){
+        ctx.fillStyle="firebrick";
+        ctx.fillRect(5, 5, 100, height);
+    }
+
+    drawBaseRect();
+    drawTimerRect(600);
+    
     $('#startButton').click(function () {
         if (isRunning){
 
@@ -29,7 +44,9 @@ $(document).ready(function() {
                     $('#statusMessage').text('Break In Progress');
 
                 }else{
-                    timerGraphRect.setAttribute('height', height);   
+                    //timerGraphRect.setAttribute('height', height);   
+                    drawBaseRect();
+                    drawTimerRect(height);
                     $('#statusTimerText').text('10:00');
                 }
             }, 1000);

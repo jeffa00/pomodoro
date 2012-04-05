@@ -55,13 +55,10 @@
                 </div>
                 <div id="timerWidgetContent" class="ui-widget-content ui-corner-bottom">
                     <div id="timerPane">
-                        <svg id="timerSvg" height="610" width="110" xmlns="http://www.w3.org/2000/svg">
-                        <rect id="timerBackgroundRect" x="0" y="0" width="110" height="610" fill="darkgreen"/>
-                        <rect id="timerRect" x="5" y="5" width="100" height="600" fill="firebrick"/>
-                        </svg>
+                        <canvas id="timerCanvas" height="610" width="110"></canvas>
                     </div>
                     <div id="statusPane">
-                        <div id="y">00:00</div>
+                        <div id="statusTimerText">00:00</div>
                         <button id="startButton">Start Pomodoro</button>
                     </div>
                 </div>
