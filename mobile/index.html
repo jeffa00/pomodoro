@@ -27,30 +27,30 @@
             <meta http-equiv="cleartype" content="on">
 
             <link rel="stylesheet" href="css/style.css">
-			<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />
+            <link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />
 
             <script src="js/libs/modernizr-2.0.6.min.js"></script>
         </head>
 
         <body>
-
             <div id="timerColumn" data-role="page"> 
                 <div id="timerWidgetHeader" data-role="header">
                     <div>Pomodoro Timer</div>
                     <div id="statusMessage">&nbsp;</div>
                     <div id="pomodoroTopic">&nbsp;</div >
+                </div>
+                <div id="timerWidgetContent" data-role="content">
+                    <div id="timerPane">
+                        <canvas id="timerCanvas" height="610" width="110"></canvas>
                     </div>
-                    <div id="timerWidgetContent" data-role="content">
-                        <div id="timerPane">
-                            <canvas id="timerCanvas" height="610" width="110"></canvas>
-                        </div>
-                        <div id="statusPane">
-                            <div id="statusTimerText">00:00</div>
-                            <button id="startButton">Start Pomodoro</button>
-							<a href="#settings">Settings</a>
-                        </div>
+                    <div id="statusPane">
+                        <div id="statusTimerText">00:00</div>
                     </div>
-                </div> 
+                </div>
+                <div id="timerWidgetFooter" data-role="footer">
+                    <button id="startButton">Start Pomodoro</button>
+                    <a href="#settings" data-role="button" data-transition="flip">Settings</a>
+                </div>
             </div>
 
             <div id="settings" data-role="page">
@@ -58,60 +58,51 @@
                     Settings
                 </div>
                 <div id="settingsContent" data-role="content">
-
-                    <div class="editor-label">
+                    <form>
                         <label for="pomodoroLengthText">Pomodoro Length:</label>
-                    </div>
-                    <div class="editor-field"><input type="range" name="slider" 
-						id="pomodoroLengthText" value="25" min="5" max="60" step="5"/></div>
+                        <input type="range" name="slider1" 
+                        id="pomodoroLengthText" value="25" min="5" max="60" step="5"/>
 
-                    <div class="editor-label">
                         <label for="shortBreakLengthText">Short Break Length:</label>
-                    </div>
-                    <div class="editor-field"><input type="range" name="slider" 
-						id="shortBreakLengthText" value="5" min="5" max="15" step="5"/></div>
+                        <input type="range" name="slider2" 
+                        id="shortBreakLengthText" value="5" min="5" max="15" step="5"/>
 
-                    <div class="editor-label">
                         <label for="longBreakLengthText">Long Break Length:</label>
-                    </div>
-                    <div class="editor-field"><input type="range" name="slider" 
-						id="longBreakLengthText" value="15" min="5" max="30"/></div>
+                        <input type="range" name="slider3" 
+                        id="longBreakLengthText" value="15" min="5" max="30" step="5"/>
 
-                    <div class="editor-label">
                         <label for="pomodorosPerSetText">Pomodoros Per Set:</label>
-                    </div>
-                    <div class="editor-field"><input type="range" name="slider" 
-						id="pomodorosPerSetText" value="4" min="1" max="10"/></div>
+                        <input type="range" name="slider4" 
+                        id="pomodorosPerSetText" value="4" min="1" max="10"/>
 
-                    <div class="editor-label">
                         <label for="pomodoroTopicText">What I'm Working On:</label>
-                    </div>
-                    <div class="editor-field"><input type="text" id="pomodoroTopicText" value=""/></div>
+                        <input type="text" id="pomodoroTopicText" value=""/>
+                    </form>
                 </div>
 
             </div>
 
 
 
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-            <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
-			<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
-			<script src="../scripts/pomodoroTimer.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+                <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.4.min.js"><\/script>')</script>
+                    <script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+                    <script src="../scripts/pomodoroTimer.js"></script>
 
-			<!-- scripts concatenated and minified via ant build script -->
-			<script src="js/helper.js"></script>
-			<!-- end concatenated and minified scripts-->
+                    <!-- scripts concatenated and minified via ant build script -->
+                    <script src="js/helper.js"></script>
+                    <!-- end concatenated and minified scripts-->
 
-			<!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+                    <!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
 
-			<script> // Change UA-XXXXX-X to be your site's ID
-				/*
-				var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
-				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-					g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-					s.parentNode.insertBefore(g,s)}(document,"script"));
-				*/
-			</script>
+                    <script> // Change UA-XXXXX-X to be your site's ID
+                        /*
+                        var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+                        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+                            g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+                            s.parentNode.insertBefore(g,s)}(document,"script"));
+                        */
+                    </script>
 
-            </body>
-        </html>
+                </body>
+            </html>
