@@ -1,0 +1,117 @@
+<!doctype html>
+<!-- Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+    <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+        <head>
+            <meta charset="utf-8">
+
+            <title>Pomodor App</title>
+            <meta name="description" content="">
+
+            <meta name="HandheldFriendly" content="True">
+            <meta name="MobileOptimized" content="320">
+            <meta name="viewport" content="width=device-width">
+
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+            <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+            <link rel="shortcut icon" href="img/l/apple-touch-icon.png">
+
+            <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+            <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+            <!-- <script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"img/startup-tablet-landscape.png":"img/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"img/startup-retina.png":"img/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script> -->
+
+            <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
+
+            <meta http-equiv="cleartype" content="on">
+
+            <link rel="stylesheet" href="css/style.css">
+			<link rel="stylesheet"  href="css/jquery.mobile-1.0.1.min.css" />
+
+            <script src="js/libs/modernizr-2.0.6.min.js"></script>
+        </head>
+
+        <body>
+
+            <div id="timerColumn" data-role="page"> 
+                <div id="timerWidgetHeader" data-role="header">
+                    <div>Pomodoro Timer</div>
+                    <div id="statusMessage">&nbsp;</div>
+                    <div id="pomodoroTopic">&nbsp;</div >
+                    </div>
+                    <div id="timerWidgetContent" data-role="content">
+                        <div id="timerPane">
+                            <canvas id="timerCanvas" height="610" width="110"></canvas>
+                        </div>
+                        <div id="statusPane">
+                            <div id="statusTimerText">00:00</div>
+                            <button id="startButton">Start Pomodoro</button>
+							<a href="#settings">Settings</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+            <div id="settings" data-role="page">
+                <div id="settingsHeader" data-role="header" data-position="fixed">
+                    Settings
+                </div>
+                <div id="settingsContent" data-role="content">
+
+                    <div class="editor-label">
+                        <label for="pomodoroLengthText">Pomodoro Length:</label>
+                    </div>
+                    <div class="editor-field"><input type="range" name="slider" 
+						id="pomodoroLengthText" value="25" min="5" max="60" step="5"/></div>
+
+                    <div class="editor-label">
+                        <label for="shortBreakLengthText">Short Break Length:</label>
+                    </div>
+                    <div class="editor-field"><input type="range" name="slider" 
+						id="shortBreakLengthText" value="5" min="5" max="15" step="5"/></div>
+
+                    <div class="editor-label">
+                        <label for="longBreakLengthText">Long Break Length:</label>
+                    </div>
+                    <div class="editor-field"><input type="range" name="slider" 
+						id="longBreakLengthText" value="15" min="5" max="30"/></div>
+
+                    <div class="editor-label">
+                        <label for="pomodorosPerSetText">Pomodoros Per Set:</label>
+                    </div>
+                    <div class="editor-field"><input type="range" name="slider" 
+						id="pomodorosPerSetText" value="4" min="1" max="10"/></div>
+
+                    <div class="editor-label">
+                        <label for="pomodoroTopicText">What I'm Working On:</label>
+                    </div>
+                    <div class="editor-field"><input type="text" id="pomodoroTopicText" value=""/></div>
+                </div>
+
+            </div>
+
+
+
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+            <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+			<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+			<script src="../scripts/pomodoroTimer.js"></script>
+
+			<!-- scripts concatenated and minified via ant build script -->
+			<script src="js/helper.js"></script>
+			<!-- end concatenated and minified scripts-->
+
+			<!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+
+			<script> // Change UA-XXXXX-X to be your site's ID
+				/*
+				var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+				(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+					g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+					s.parentNode.insertBefore(g,s)}(document,"script"));
+				*/
+			</script>
+
+            </body>
+        </html>
