@@ -3,10 +3,23 @@ $(document).ready(function() {
     var ctx = timerCanvas.getContext('2d');
 
     var height = 600;
+    var ticker = 0;
     var pomodoroMinutes = 1;
     var timerGraphRect = document.getElementById('timerRect');
     var isRunning = false;
     $('#startButton').button();
+    $('#showTimeRadio').buttonset();
+
+    $('[for=timeOn]').click(function(){ toggleTimer(); });
+    $('[for=timeOff]').click(function(){ toggleTimer(); });
+
+    var toggleTimer = function(){
+        if ($('#timeOn').is(':checked')){
+            $('#statusTimerText').show();
+        }else{
+            $('#statusTimerText').hide();
+        }
+    };
 
     var drawBaseRect = function(){
        ctx.fillStyle="darkgreen";
@@ -42,16 +55,28 @@ $(document).ready(function() {
                     var snd = new Audio('sounds/66951__benboncan__boxing-bell.wav');
                     snd.play();
                     $('#statusMessage').text('Break In Progress');
-
+                    //updateStatusTimer();
                 }else{
                     //timerGraphRect.setAttribute('height', height);   
                     drawBaseRect();
                     drawTimerRect(height);
-                    $('#statusTimerText').text('10:00');
+                    updateStatusTimer();
                 }
             }, 1000);
         }
     });
+
+    var updateStatusTimer = function(){
+        ticker++;
+        var mins = Math.round(ticker / 60);
+        var secs = Math.round(ticker % 60);
+        var minsWithZero = '00' + mins;
+        var secsWithZero = '00' + secs;
+        
+        var displayTime = minsWithZero.slice(minsWithZero.length - 2, minsWithZero.length) + ":" 
+            + secsWithZero.slice(secsWithZero.length - 2, secsWithZero.length);
+        $('#statusTimerText').text(displayTime );
+    };
 
     $('#pomodoroLengthSlider').slider({
         value:25,
