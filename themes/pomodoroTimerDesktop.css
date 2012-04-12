@@ -67,3 +67,8 @@
 {
     float:left;
 }
+
+.formerlyTrue
+{
+    text-decoration: line-through;
+}
