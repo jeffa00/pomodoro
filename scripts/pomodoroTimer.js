@@ -10,11 +10,11 @@ $(document).ready(function() {
     $('#startButton').button();
     $('#showTimeRadio').buttonset();
 
-    $('[for=timeOn]').click(function(){ toggleTimer(); });
-    $('[for=timeOff]').click(function(){ toggleTimer(); });
+    $('[for=timeOn]').click(function(){ toggleTimer("on"); });
+    $('[for=timeOff]').click(function(){ toggleTimer("off"); });
 
-    var toggleTimer = function(){
-        if ($('#timeOn').is(':checked')){
+    var toggleTimer = function(state){
+        if (state === "on"){
             $('#statusTimerText').show();
         }else{
             $('#statusTimerText').hide();

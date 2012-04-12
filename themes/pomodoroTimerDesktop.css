@@ -12,6 +12,11 @@
     padding-bottom: 10px;
 }
 
+#settingsContent
+{
+    padding: .5em .75em .5em .75em;
+}
+
 #timerColumn
 {
     float: left;
