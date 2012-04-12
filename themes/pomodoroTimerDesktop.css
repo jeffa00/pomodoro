@@ -2,7 +2,7 @@
 {
     float: left;
     width: 300px;
-    margin-right: 20px;
+    margin: 0 1em 1em 1em;
 }
 
 #settingsHeader
@@ -16,6 +16,7 @@
 {
     float: left;
     width: 300px;
+    margin: 0 1em 1em 1em;
 }
 
 #timerWidgetContent
