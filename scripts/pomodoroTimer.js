@@ -2,7 +2,7 @@ $(document).ready(function() {
     var timerCanvas = document.getElementById('timerCanvas');
     var ctx = timerCanvas.getContext('2d');
 
-    var height = 600;
+    var height = $('#timerCanvas').height() - 10;
     var ticker = 0;
     var pomodoroMinutes = 1;
     var timerGraphRect = document.getElementById('timerRect');
@@ -22,8 +22,8 @@ $(document).ready(function() {
     };
 
     var drawBaseRect = function(){
-       ctx.fillStyle="darkgreen";
-       ctx.fillRect(0, 0, 110, 610);
+        ctx.fillStyle="darkgreen";
+        ctx.fillRect(0, 0, 110, 610);
     } 
 
     var drawTimerRect = function(height){
@@ -31,9 +31,16 @@ $(document).ready(function() {
         ctx.fillRect(5, 5, 100, height);
     }
 
-    drawBaseRect();
-    drawTimerRect(600);
+
+    var reset = function(){
+        ticker = 0;
+        height = $('#timerCanvas').height() - 10;
+        drawBaseRect();
+        drawTimerRect(height);
+    };
     
+    reset();
+
     $('#startButton').click(function () {
         if (isRunning){
 
@@ -55,6 +62,8 @@ $(document).ready(function() {
                     var snd = new Audio('sounds/66951__benboncan__boxing-bell.wav');
                     snd.play();
                     $('#statusMessage').text('Break In Progress');
+                    reset();
+                    isRunning = false;
                     //updateStatusTimer();
                 }else{
                     //timerGraphRect.setAttribute('height', height);   
@@ -72,7 +81,7 @@ $(document).ready(function() {
         var secs = Math.round(ticker % 60);
         var minsWithZero = '00' + mins;
         var secsWithZero = '00' + secs;
-        
+
         var displayTime = minsWithZero.slice(minsWithZero.length - 2, minsWithZero.length) + ":" 
             + secsWithZero.slice(secsWithZero.length - 2, secsWithZero.length);
         $('#statusTimerText').text(displayTime );
