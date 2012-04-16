@@ -1,19 +1,25 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var timerCanvas = document.getElementById('timerCanvas');
     var ctx = timerCanvas.getContext('2d');
 
     var height = $('#timerCanvas').height() - 10;
     var ticker = 0;
     var pomodoroMinutes = 1;
+    var pomodoroSetsComplated = 0;
+    var pomodorosPerSet = $('#pomodorosPerSetText').val();
+    var shortBreakLength = $('#shortBreakLengthText').val();
+    var longBreakLength = $('#longBreakLengthText').val();
+    var interval;
+
     var timerGraphRect = document.getElementById('timerRect');
     var isRunning = false;
     $('#startButton').button();
     $('#showTimeRadio').buttonset();
 
-    $('[for=timeOn]').click(function(){ toggleTimer("on"); });
-    $('[for=timeOff]').click(function(){ toggleTimer("off"); });
+    $('[for=timeOn]').click(function (){ toggleTimer("on"); });
+    $('[for=timeOff]').click(function (){ toggleTimer("off"); });
 
-    var toggleTimer = function(state){
+    var toggleTimer = function (state){
         if (state === "on"){
             $('#statusTimerText').show();
         }else{
@@ -21,29 +27,32 @@ $(document).ready(function() {
         }
     };
 
-    var drawBaseRect = function(){
+    var drawBaseRect = function (){
         ctx.fillStyle="darkgreen";
         ctx.fillRect(0, 0, 110, 610);
     } 
 
-    var drawTimerRect = function(height){
+    var drawTimerRect = function (height){
         ctx.fillStyle="firebrick";
         ctx.fillRect(5, 5, 100, height);
     }
 
 
-    var reset = function(){
+    var reset = function (){
         ticker = 0;
         height = $('#timerCanvas').height() - 10;
         drawBaseRect();
         drawTimerRect(height);
+        $('#startButton').text('Start Pomodoro');
     };
     
     reset();
 
     $('#startButton').click(function () {
         if (isRunning){
-
+           interval = clearInterval(interval);
+           isRunning = false; 
+           $('#startButton').text('Continue Pomodoro');
         }else{
             pomodoroMinutes = Number($('#pomodoroLengthText').val()); 
             isRunning = true;
@@ -52,10 +61,10 @@ $(document).ready(function() {
             if (topicText == ''){
                 topicText = ' ';
             }
-
+            $('#startButton').text('Pause Pomodoro');
             $('#pomodoroTopic').text(topicText);
 
-            var interval = setInterval(function() {
+            interval = setInterval(function () {
                 height -= 600 / (pomodoroMinutes * 60);
                 if (height < 0){
                     interval = clearInterval(interval);
@@ -75,8 +84,8 @@ $(document).ready(function() {
         }
     });
 
-    var updateStatusTimer = function(){
-        ticker++;
+    var updateStatusTimer = function (){
+        ticker += 1;
         var mins = Math.round(ticker / 60);
         var secs = Math.round(ticker % 60);
         var minsWithZero = '00' + mins;
@@ -92,7 +101,7 @@ $(document).ready(function() {
         min:5,
         max:60,
         step:5,
-        slide: function( event, ui) {
+        slide: function ( event, ui) {
             $('#pomodoroLengthText').val( ui.value );
         }
     });
@@ -105,7 +114,7 @@ $(document).ready(function() {
         min:5,
         max:15,
         step:5,
-        slide: function( event, ui) {
+        slide: function ( event, ui) {
             $('#shortBreakLengthText').val( ui.value );
         }
     });
@@ -118,7 +127,7 @@ $(document).ready(function() {
         min:5,
         max:30,
         step:5,
-        slide: function( event, ui) {
+        slide: function ( event, ui) {
             $('#longBreakLengthText').val( ui.value );
         }
     });
@@ -131,7 +140,7 @@ $(document).ready(function() {
         min:1,
         max:10,
         step:1,
-        slide: function( event, ui) {
+        slide: function ( event, ui) {
             $('#pomodorosPerSetText').val( ui.value );
         }
     });
